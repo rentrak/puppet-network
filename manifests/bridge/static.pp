@@ -98,6 +98,6 @@ define network::bridge::static (
     group   => 'root',
     path    => "/etc/sysconfig/network-scripts/ifcfg-${interface}",
     content => template('network/ifcfg-br.erb'),
-    notify  => Service['network'],
+    # notify  => Service['network'],
   }
 } # define network::bridge::static
