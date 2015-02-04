@@ -32,18 +32,12 @@
 # Copyright (C) 2011 Mike Arnold, unless otherwise noted.
 #
 define network::bond::slave (
-  $macaddress,
   $master,
+  $interface    = $name,
+  $macaddress   = '',
   $ethtool_opts = ''
 ) {
-  # Validate our data
-  if ! is_mac_address($macaddress) {
-    fail("${macaddress} is not a MAC address.")
-  }
-
-  include 'network'
-
-  $interface = $name
+  include network
 
   file { "ifcfg-${interface}":
     ensure  => 'present',
