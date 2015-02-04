@@ -83,7 +83,7 @@ define network::bond::static (
               'set alias[last()]/modulename bonding',
             ],
             onlyif  => "match alias[*][. = '${title}'] size == 0",
-            # before  => Network_if_base[$title],
+            before  => Network_if_base[$title],
           }
         }
         default: {}
@@ -99,7 +99,7 @@ define network::bond::static (
               'set alias[last()]/modulename bonding',
             ],
             onlyif  => "match alias[*][. = '${title}'] size == 0",
-            # before  => Network_if_base[$title],
+            before  => Network_if_base[$title],
           }
         }
         default: {}
